@@ -4,7 +4,7 @@ namespace Lmc\Matej\Model\Command;
 
 use PHPUnit\Framework\TestCase;
 
-class InteractionTest extends TestCase
+class UserRecommendationTest extends TestCase
 {
     /** @var string */
     private $userId;
@@ -33,7 +33,7 @@ class InteractionTest extends TestCase
         /**
          * Test plain constructors
          */
-        $this->assertInteractionObject(new Interaction($this->userId, $this->count, $this->scenario));
+        $this->assertInteractionObject(new UserRecommendation($this->userId, $this->count, $this->scenario));
         $this->assertInteractionObject($this->createBaseCommand());
 
         /**
@@ -51,22 +51,22 @@ class InteractionTest extends TestCase
         $command = $this->createBaseCommand()->setHardRotation(false);
         $this->assertInteractionObject($command, 'hard_rotation', false);
 
-        $command = $this->createBaseCommand()->setMinRelevance(Interaction::RELEVANCE_LOW);
-        $this->assertInteractionObject($command, 'min_relevance', Interaction::RELEVANCE_LOW);
+        $command = $this->createBaseCommand()->setMinRelevance(UserRecommendation::RELEVANCE_LOW);
+        $this->assertInteractionObject($command, 'min_relevance', UserRecommendation::RELEVANCE_LOW);
 
-        $command = $this->createBaseCommand()->setMinRelevance(Interaction::RELEVANCE_MEDIUM);
-        $this->assertInteractionObject($command, 'min_relevance', Interaction::RELEVANCE_MEDIUM);
+        $command = $this->createBaseCommand()->setMinRelevance(UserRecommendation::RELEVANCE_MEDIUM);
+        $this->assertInteractionObject($command, 'min_relevance', UserRecommendation::RELEVANCE_MEDIUM);
 
-        $command = $this->createBaseCommand()->setMinRelevance(Interaction::RELEVANCE_HIGH);
-        $this->assertInteractionObject($command, 'min_relevance', Interaction::RELEVANCE_HIGH);
+        $command = $this->createBaseCommand()->setMinRelevance(UserRecommendation::RELEVANCE_HIGH);
+        $this->assertInteractionObject($command, 'min_relevance', UserRecommendation::RELEVANCE_HIGH);
 
         $command = $this->createBaseCommand()->setFilter($filter);
         $this->assertInteractionObject($command, 'filter', $filter);
     }
 
-    private function createBaseCommand(): Interaction
+    private function createBaseCommand(): UserRecommendation
     {
-        return Interaction::create($this->userId, $this->count, $this->scenario);
+        return UserRecommendation::create($this->userId, $this->count, $this->scenario);
     }
 
     /**
@@ -89,7 +89,7 @@ class InteractionTest extends TestCase
             $expected['parameters'][$optionalArgument] = $optionalValue;
         }
 
-        $this->assertInstanceOf(Interaction::class, $object);
+        $this->assertInstanceOf(UserRecommendation::class, $object);
         $this->assertSame($expected, $object->jsonSerialize());
     }
 }
