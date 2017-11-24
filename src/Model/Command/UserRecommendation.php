@@ -4,7 +4,6 @@ namespace Lmc\Matej\Model\Command;
 
 /**
  * Deliver personalized recommendations for the given user.
- * TODO: add documentation to individual setters
  */
 class UserRecommendation extends AbstractCommand
 {
