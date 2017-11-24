@@ -7,9 +7,9 @@ namespace Lmc\Matej\Model\Command;
  */
 class UserRecommendation extends AbstractCommand
 {
-    const MIN_RELEVANCE_LOW = 'low';
-    const MIN_RELEVANCE_MEDIUM = 'medium';
-    const MIN_RELEVANCE_HIGH = 'high';
+    const MINIMAL_RELEVANCE_LOW = 'low';
+    const MINIMAL_RELEVANCE_MEDIUM = 'medium';
+    const MINIMAL_RELEVANCE_HIGH = 'high';
 
     /** @var string */
     private $userId;
@@ -24,7 +24,7 @@ class UserRecommendation extends AbstractCommand
     /** @var bool */
     private $hardRotation;
     /** @var string */
-    private $minimalRelevance = self::MIN_RELEVANCE_LOW;
+    private $minimalRelevance = self::MINIMAL_RELEVANCE_LOW;
     /** @var string */
     private $filter = 'valid_to >= NOW';
 
