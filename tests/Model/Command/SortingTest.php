@@ -2,22 +2,17 @@
 
 namespace Lmc\Matej\Model\Command;
 
-use PHPUnit\Framework\TestCase;
+use Lmc\Matej\TestCase;
 
 class SortingTest extends TestCase
 {
-    /**
-     * @test
-     */
-    public function shouldGenerateCorrectSignature(): void
+    /** @test */
+    public function shouldBeInstantiableViaNamedConstructor(): void
     {
         $userId = 'user-id';
         $itemIds = ['item-1', 'item-3', 'item-2'];
 
         $command = Sorting::create($userId, $itemIds);
-        $this->assertSortingObject($command, $userId, $itemIds);
-
-        $command = new Sorting($userId, $itemIds);
         $this->assertSortingObject($command, $userId, $itemIds);
     }
 
