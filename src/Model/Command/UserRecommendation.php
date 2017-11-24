@@ -82,12 +82,13 @@ class UserRecommendation extends AbstractCommand
     /**
      * Define threshold of how much relevant must the recommended items be to be returned.
      */
-    public function setMinimalRelevance(string $minimalRelevance)
+    public function setMinimalRelevance(string $minimalRelevance): self
     {
         // TODO: assert one of MIN_RELEVANCE_*
         $this->minimalRelevance = $minimalRelevance;
-    }
 
+        return $this;
+    }
 
     public function getCommandType(): string
     {
